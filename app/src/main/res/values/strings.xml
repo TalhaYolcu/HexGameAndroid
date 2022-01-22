@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Hex Game</string>
+    <string name="enter_size">Enter Size (5–13)</string>
+    <string name="against_ai">Against AI</string>
+    <string name="file_txt">file.txt</string>
+    <string name="enter_file_name">Enter file name</string>
+    <string name="redturn">Red\'s turn</string>
+    <string name="blueturn">Blue\'s turn</string>
+    <string name="hex_game">HEX GAME</string>
+    <string name="start">START</string>
+    <string name="size_alert">Size should be integer between (5–13)</string>
+    <string name="undo_g">UNDO</string>
+    <string name="save">SAVE</string>
+    <string name="load">LOAD</string>
+    <string name="reset">RESET</string>
+    <string name="against_p">Against player</string>
+    <string name="game_finish">Game is finished</string>
+    <string name="game_load">Load game</string>
+    <string name="game_save">Save game</string>
+    <string name="file_ask">Enter a file name</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="reset_alert">There is no move to reset</string>
+    <string name="undo_alert">There is no move to undo</string>
+    <string name="reset_success">Reset successful</string>
+    <string name="undo_success">Undo successful</string>
+    <string name="undo_game_finish">Game is finished, can\'t undo</string>
+    <string name="file_not_found">File is not found. Be sure that you have saved the game before try to load it</string>
+    <string name="file_alert">Please enter a file name</string>
+    <string name="save_success">Game is saved successfully</string>
+    <string name="load_success">Game is loaded successfully</string>
+    <string name="cant_move">Can\'t move here</string>
+    <string name="red_winner">RED IS WINNER</string>
+    <string name="blue_winner">BLUE IS WINNER</string>
+    <string name="auto_fill">6</string>
+    <string name="tutorial">TUTORIAL</string>
+    <string name="tutorial_content">Build a PATH of hexes between SIDES of the board. For red player from left to right. For blue player from top to bottom. Each turn you can color one empty hex.</string>
+
+
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hex Oyunu</string>
+    <string name="enter_size">5–13 arasında bir sayı girin</string>
+    <string name="against_ai">Yapay Zekaya Karşı</string>
+    <string name="file_txt">dosya.txt</string>
+    <string name="enter_file_name">Dosya ismi girin</string>
+    <string name="redturn">Kırmızının sırası</string>
+    <string name="blueturn">Mavinin sırası</string>
+    <string name="hex_game">HEX OYUNU</string>
+    <string name="start">BAŞLAT</string>
+    <string name="size_alert">Boyut (5–13) arasında bir tam sayı olmalıdır</string>
+    <string name="undo_g">GERİ AL</string>
+    <string name="save">KAYDET</string>
+    <string name="load">YÜKLE</string>
+    <string name="reset">SIFIRLA</string>
+    <string name="against_p">2.oyuncuya karşı</string>
+    <string name="game_finish">Oyun bitti</string>
+    <string name="game_load">Oyun yükle</string>
+    <string name="game_save">Oyun kaydet</string>
+    <string name="file_ask">Bir dosya ismi giriniz</string>
+    <string name="cancel">İptal</string>
+    <string name="ok">Tamam</string>
+    <string name="reset_alert">Sıfırlanacak bir hamle yok</string>
+    <string name="undo_alert">Geri alacak bir hamle yok</string>
+    <string name="reset_success">Sıfırlama başarılı</string>
+    <string name="undo_success">Geri alma başarılı</string>
+    <string name="undo_game_finish">Oyun bitti. Geri alınamaz</string>
+    <string name="file_not_found">Dosya bulunamadı.Oyunu yüklemeden önce kaydettiğinizden emin olunuz</string>
+    <string name="file_alert">Lütfen bir dosya ismi giriniz</string>
+    <string name="save_success">Oyun başarıyla kaydedildi</string>
+    <string name="load_success">Oyun başarıyla yüklendi</string>
+    <string name="cant_move">Buraya hamle yapılamaz</string>
+    <string name="red_winner">KIRMIZI KAZANDI</string>
+    <string name="blue_winner">MAVİ KAZANDI</string>
+    <string name="auto_fill">6</string>
+    <string name="tutorial">NASIL OYNANIR?</string>
+    <string name="tutorial_content">Tahtanın KENARLARI arasında bir altıgen YOL oluşturun. Kırmızı oyuncu için soldan sağa. Mavi oyuncu için yukarıdan aşağıya. Her turda bir boş altıgen renklendirebilirsiniz.</string>
+
+</resources>
