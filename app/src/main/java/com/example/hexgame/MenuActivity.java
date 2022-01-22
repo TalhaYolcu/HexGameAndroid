@@ -23,20 +23,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        findViewById(R.id.pvp).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.radio_bot).setVisibility(View.INVISIBLE);
-            }
-        });
-
-        findViewById(R.id.pvb).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.radio_bot).setVisibility(View.INVISIBLE);
-            }
-        });
-
         Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +42,12 @@ public class MenuActivity extends AppCompatActivity {
                     int selected_bot = rg_bot.getCheckedRadioButtonId();
                     start_game.putExtra("botLevel", ((RadioButton) findViewById(selected_bot)).getText().toString());
                 }
-                finish();
+                //finish();
                 startActivity(start_game);
             }
         });
 
-        ((ImageButton) findViewById(R.id.info_button)).setOnClickListener(new View.OnClickListener() {
+        ( findViewById(R.id.info_button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent info = new Intent(MenuActivity.this, InfoActivity.class);

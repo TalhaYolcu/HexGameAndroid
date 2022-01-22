@@ -15,6 +15,7 @@
         android:text="Hex Game"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="40sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/version"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -36,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Game Size"
+            android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="25sp" />
 
@@ -46,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:text="6"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <RadioButton
@@ -53,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:text="7"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <RadioButton
@@ -60,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:text="8"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <RadioButton
@@ -67,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:text="9"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
 
@@ -86,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Game Type"
+            android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="25sp" />
 
@@ -94,6 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Player vs Player"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <RadioButton
@@ -101,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Player vs Bot"
+            android:textColor="@color/white"
             android:textSize="15sp" />
     </RadioGroup>
 
@@ -120,6 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
+            android:textColor="@color/white"
             android:text="Bot Level"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="25sp" />
@@ -129,6 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Easy"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <RadioButton
@@ -136,12 +147,14 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Normal"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/level3"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:textColor="@color/white"
             android:text="Hard"
             android:textSize="15sp" />
 
@@ -163,6 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="Start"
+        android:textColor="#0080FF"
         app:layout_constraintBottom_toTopOf="@+id/version"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -171,7 +185,7 @@
         android:id="@+id/info_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#DDB79D"
+        android:background="#0080FF"
         app:layout_constraintBottom_toBottomOf="@+id/start_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
