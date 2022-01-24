@@ -3,19 +3,30 @@ package com.example.hexgame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Random;
 
 public class BoardActivity extends AppCompatActivity implements View.OnClickListener,HexInterface {
@@ -129,9 +140,213 @@ public class BoardActivity extends AppCompatActivity implements View.OnClickList
                 tw_p2_score.setText(userScore(Cell_type.PLAYER2.type));
             }
         });
+/*
+        findViewById(R.id.save).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(BoardActivity.this);
+                builder.setTitle(R.string.game_save);
+                builder.setMessage(R.string.file_ask);
+                final EditText input = new EditText(BoardActivity.this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+                builder.setNegativeButton(R.string.cancel, null);
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String file_name = input.getText().toString();
+                        saveGame(file_name);
+                    }
+                });
+                builder.show();
 
+            }
+        });
+
+ */
+/*
+        findViewById(R.id.load).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(BoardActivity.this);
+                builder.setTitle(R.string.game_load);
+                builder.setMessage(R.string.file_ask);
+                final EditText input = new EditText(BoardActivity.this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+                builder.setNegativeButton(R.string.cancel, null);
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String file_name = input.getText().toString();
+                        loadGame(file_name);
+                    }
+                });
+                builder.show();
+            }
+        });
+
+
+ */
 
     }
+
+    /*private void loadGame(String fileName) {
+        FileInputStream inputStream = null;
+        try {
+            inputStream = openFileInput(fileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(BoardActivity.this, R.string.file_not_found, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        BufferedReader bReader = new BufferedReader(new InputStreamReader(inputStream));
+        String line;
+        try {
+
+            for(int i=0;i<size;i++) {
+                for(int k=0;k<size;k++) {
+                    hex_buttons[i][k].setVisibility(View.GONE);
+                }
+            }
+
+            hexCells=null;
+            moves=null;
+
+            int temp_size;
+            int ai_int;
+            int move_int;
+            line=bReader.readLine();
+            size=Integer.parseInt(line);
+            temp_size=size;
+            line=bReader.readLine();
+            ai_int=Integer.parseInt(line);
+            if(ai_int==0) {
+                ai=false;
+            }
+            line=bReader.readLine();
+            move_int=Integer.parseInt(line);
+            if(move_int==0) {
+                turn2=false;
+            }
+            board=new ImageButton[size][size];
+            cells=new Cell[size][size];
+            moves=new Cell[size*size];
+            inner=new RelativeLayout(this);
+            inner=findViewById(R.id.inner);
+            setWidthHeight();
+            bottom=findViewById(R.id.constraintLayout);
+            turn2=true;
+            int width_of_one_button=(int) (((double) width) / (size + (size - 1) * 1.0 / 2));
+            int counter=0;
+            int shift = (int) (width_of_one_button / 2);
+            turn=findViewById(R.id.turn_text);
+            board=new ImageButton[size][size];
+
+
+
+            for(int i=0;i<size;i++){
+                board[i]=new ImageButton[size];
+                cells[i]=new Cell[size];
+                for(int k=0;k<size;k++) {
+                    board[i][k]=new ImageButton(EmptyActivity.this);
+                    board[i][k].setLayoutParams(new RelativeLayout.LayoutParams(width_of_one_button+30,width_of_one_button+30));
+                    board[i][k].setX(k*width_of_one_button+(i*(int)(width_of_one_button/2))-5);
+                    board[i][k].setY(i*width_of_one_button+start_y+200);
+                    board[i][k].setId(counter++);
+                    board[i][k].setOnClickListener(getOnClick(i,k));
+                    board[i][k].setImageResource(R.drawable.gray_hexagon);
+                    board[i][k].setBackgroundResource(R.drawable.ic_launcher_background);
+                    board[i][k].setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    board[i][k].setAdjustViewBounds(true);
+                    inner.addView(board[i][k]);
+                    line=bReader.readLine();
+                    int i1=Integer.parseInt(line);
+                    line=bReader.readLine();
+                    int k1=Integer.parseInt(line);
+                    char not=bReader.readLine().charAt(0);
+                    cells[i][k]=new Cell(k1,i1,not);
+                    switch (not) {
+                        case 'o':
+                            board[i][k].setImageResource(R.drawable.blue_hexagon);
+                            break;
+                        case 'x':
+                            board[i][k].setImageResource(R.drawable.red_hexagon);
+                            break;
+                        case '.':
+                            board[i][k].setImageResource(R.drawable.gray_hexagon);
+                            break;
+                    }
+                }
+            }
+            char z=bReader.readLine().charAt(0);
+            if(z!='-') {
+                throw new IOException();
+            }
+            line=bReader.readLine();
+            number_of_moves=Integer.parseInt(line);
+            for(int i=0;i<size*size;i++) {
+                moves[i]=new Cell(0,0,'.');
+            }
+            for(int j=0;j<number_of_moves;j++) {
+                moves[j].setX(Integer.parseInt(bReader.readLine()));
+                moves[j].setY(Integer.parseInt(bReader.readLine()));
+                moves[j].setNot(bReader.readLine().charAt(0));
+            }
+        }
+        catch (IOException | IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                bReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+     */
+
+    /*private void saveGame(String fname) {
+
+        if(fname==null) {
+        }
+        else if(fname.isEmpty()){
+            Toast.makeText(BoardActivity.this, R.string.file_alert, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            try {
+                FileOutputStream file = openFileOutput(fname, MODE_PRIVATE);
+                OutputStreamWriter outputFile = new OutputStreamWriter(file);
+                int ai_int=(ai)? 1:0;
+                int move_int=(turn2)?1:0;
+                outputFile.write(size+"\n"+ai_int+"\n"+move_int+"\n");
+                for(int i=0;i<size;i++) {
+                    for(int k=0;k<size;k++) {
+                        outputFile.write(i+"\n"+k+"\n"+cells[i][k].getNot()+"\n");
+                    }
+                }
+                outputFile.write("-"+"\n");
+                outputFile.write(number_of_moves+"\n");
+                for(int i=0;i<number_of_moves;i++) {
+                    outputFile.write(moves[i].getX()+"\n"+moves[i].getY()+"\n"+moves[i].getNot()+"\n");
+                }
+                //outputFile.flush();
+                outputFile.close();
+
+                Toast.makeText(EmptyActivity.this, R.string.save_success, Toast.LENGTH_SHORT).show();
+            }
+            catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+     */
 
 
     @Override
